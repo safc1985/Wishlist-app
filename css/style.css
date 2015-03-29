@@ -1,0 +1,107 @@
+* {
+
+}
+
+.spacer {
+	margin-top: 100px;
+	margin-bottom: 150px;
+}
+
+.list-group-item {
+	text-align: center;
+}
+
+.list-group h3 {
+	font-size: 35px;
+	background-color: #f83764;
+	width: 100%;
+	color: #ffffff;
+	padding: 10px;
+}
+
+.list-group h5 {
+	color: #1c70f8;
+	font-style: italic;
+	font-size: 30px;
+}
+
+blockquote {
+	border: none;
+}
+
+blockquote p, cite {
+	font-size: 14px;
+}
+
+.nav {
+	margin: 10px 0 20px 0;
+}
+
+.nav.nav-pills li {
+	/*outline: 1px solid #f81b00;*/
+	width: 33%;
+	margin: 0;
+	padding: 0;
+	background-color: #e5e2df;
+}
+
+.nav-pills>li>a {
+	border-radius: 0;
+}
+
+.well h4 {
+	background-color: #ffffff;
+	padding: 10px;
+	border: 1px solid #f83764;
+}
+
+select {
+	background-color: #44f8bd;
+	border: none;
+	padding: 10px;
+	color: #ffffff;
+}
+
+/* Base de la pagina */
+
+body {
+font: 13px/1.6 Tahoma, sans-serif;
+background: #F5F5F5;
+background: url(../img/fondo.gif) repeat-y left top;*/
+}
+
+#contenedor{
+background: #FFF;
+background: url(../img/contenedor.gif) repeat-y left top;
+border: 1px solid silver;
+margin: 1em auto;
+padding: 1em;
+width:860px;
+}
+
+
+div#redSquare {
+            background-color:red;
+            width:200px;
+            height:70px;
+            position:absolute: padding-left:100px;
+            top:180px;
+            z-index:2;
+}
+
+h1 {
+font: normal 2em arial, sans-serif;
+margin: 0;
+}
+
+h3 {
+font: normal 2em arial, sans-serif;
+margin: 0;
+}
+
+p {
+font: arial, sans-serif;
+margin: 0;
+}
+
+

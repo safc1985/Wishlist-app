@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en" ng-app="store"> 
+ 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tienda Digital</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="menu/chromestyle.css" />
+	<script type="text/javascript" src="menu/menu.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+  
+  
+<body ng-controller="StoreController as store">
+
+		<div id="header">
+	    <table width="85%" align="center" border="0">
+          <tr>
+            <td align="center"><img src="img/brasil.jpg" width="863" height="180" alt="logobrasil" /></td>
+          </tr>
+        </table>
+	</div>
+	
+	<center>
+	<div class="chromestyle" id="chromemenu">
+		<ul>
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="#">Productos</a></li>
+			<li><a href="carrito.html">Carrito</a></li>
+		</ul>
+	</div>	
+	
+	<div class="container spacer">
+	  	<ul class="list-group">
+	    	<li class="list-group-item col-md-6" ng-repeat="product in store.products">
+	    		<h3>{{ product.name }}</h3>
+	    		<h5>{{ product.price | currency }}</h5>
+	    		<img ng-src="{{product.images[0].full}}"/>
+	    		<br>
+	    		<br>
+	    		<section ng-controller="PanelController as panel">
+	    			<ul class="nav nav-pills col-md-12">
+	    				<li ng-class="{ active:panel.isSelected(1) }" class="col-md-4"> <a href ng-click="panel.selectTab(1)">Descripción</a></li>
+	    				<li ng-class="{ active:panel.isSelected(2) }" class="col-md-4"> <a href ng-click="panel.selectTab(2)">Caracteristicas</a></li>
+	    				<li ng-class="{ active:panel.isSelected(3) }" class="col-md-4"> <a href ng-click="panel.selectTab(3)">Reseñas</a></li>
+	    			</ul>
+						<div class="off-panel" ng-show="panel.isSelected(1)">
+							<h4>Descripción</h4>
+							<p>{{product.description}}</p>
+						</div>
+						<div class="off-panel" ng-show="panel.isSelected(2)">
+							<h4>Caracteristicas</h4>
+							<p>{{product.specification}}</p>
+						</div>
+						<div class="off-panel" ng-show="panel.isSelected(3)">
+							<h4>Reseñas</h4>
+							<blockquote ng-repeat="review in product.reviews">
+								<b>Estrellas: {{review.stars}}</b>
+								<p>{{review.body}}</p>
+								<cite>- {{review.author}}</cite>
+							</blockquote>
+							<div class="well">
+								<h4>Agrega un comentario</h4>
+								<form name="reviewForm">
+									<blockquote>
+										<b>Estrellas: {{review.stars}}</b>
+										<p>{{review.body}}</p>
+										<cite>- {{review.author}}</cite>
+									</blockquote>
+									<p>Clasificación</p>
+									<select ng-model="review.stars">
+										<option value="1">1 estrella</option>
+										<option value="2">2 estrellas</option>
+										<option value="3">3 estrellas</option>
+										<option value="4">4 estrellas</option>
+									</select>
+									<br>
+									<br>
+									<p>Ingresa tu reseña</p>
+									<textarea ng-model="review.body" placeholder="Ingresa tu reseña"></textarea>
+									<br>
+									<br>
+									<p>Correo electrónico</p>
+									<input ng-model="review.author" type="email" placeholder="tu@email.com">
+									<br>
+									<br>
+									<input type="submit" value="Aceptar">
+								</form>
+		    				</div>
+						</div>
+	    		</section>
+	    	</li>
+		</ul>
+	</div>
+	<center>
+  </body>
+</html>
